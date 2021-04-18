@@ -37,9 +37,13 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public void deleteById(Long idClient) {
-		// TODO Auto-generated method stub
+	public void deleteById(int idClient) {
+		this.dao.deleteById(idClient);
 		
+	}
+	
+	public Client getClientId(int idClient) {
+		return this.dao.getClientId(idClient);
 	}
 
 	

@@ -26,6 +26,8 @@ public class UserServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//request.getSession().getAttribute("user");
+		
 		if (request.getParameter("return") != null) {
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
@@ -35,7 +37,8 @@ public class UserServlet extends HttpServlet {
 			rd.forward(request, response);
 		}
 		else if (request.getParameter("delete") != null) {
-			
+			RequestDispatcher rd = request.getRequestDispatcher("delete_client.jsp");
+			rd.forward(request, response);
 		}
 		else if (request.getParameter("showAll") != null) {
 			RequestDispatcher rd = request.getRequestDispatcher("list.jsp");

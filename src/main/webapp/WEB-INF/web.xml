@@ -16,6 +16,13 @@
 		<servlet-name>ListServlet</servlet-name>
 		<servlet-class>br.com.bank.controller.ListServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>DeleteServlet</display-name>
+		<servlet-name>DeleteServlet</servlet-name>
+		<servlet-class>br.com.bank.controller.DeleteServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>UserServlet</servlet-name>
 		<url-pattern>/userServlet</url-pattern>
@@ -23,6 +30,10 @@
 	<servlet-mapping>
 		<servlet-name>ListServlet</servlet-name>
 		<url-pattern>/listServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteServlet</servlet-name>
+		<url-pattern>/deleteServlet</url-pattern>
 	</servlet-mapping>
 
 

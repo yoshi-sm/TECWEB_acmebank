@@ -23,7 +23,8 @@
 			<input id="phone" name="phone" type="text" placeholder="your phone">
 			<br/>
 			<br/>
-			<input type="submit" value="Add" id="btn-Login">
+			<input type="submit" value="Add" id="btn-Add" name="add">
+			<input type="submit" value="Return" id="btn-Return" name="return">
 		</form>
 	</div>
 	

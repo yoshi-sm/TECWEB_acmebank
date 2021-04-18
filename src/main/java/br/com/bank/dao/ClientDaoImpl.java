@@ -29,6 +29,28 @@ public class ClientDaoImpl implements ClientDao{
 		
 		return null;
 	}
+	
+	public Client getClientId(int idClient) {
+		EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		try {
+			Client client = entityManager.createNamedQuery("Client.getById", Client.class)
+					.setParameter("id", idClient)
+					.getSingleResult();
+			return client;
+				
+				
+		}catch(NoResultException e) {
+			e.getMessage();
+			entityManager.close();
+		}
+		return null;
+		
+		
+		
+		
+	}
 
 	@Override
 	public List<Client> getAll() {
@@ -64,9 +86,25 @@ public class ClientDaoImpl implements ClientDao{
 	
 
 	@Override
-	public void deleteById(Long idClient) {
-		// TODO Auto-generated method stub
+	public void deleteById(int idClient) {
+		EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
+		entityManager.getTransaction().begin();
 		
+		try {
+			Client client = entityManager.createNamedQuery("Client.getById", Client.class)
+					.setParameter("id", idClient)
+					.getSingleResult();
+					
+			entityManager.remove(client);
+			entityManager.getTransaction().commit();
+			entityManager.close();
+				
+				
+		}catch(NoResultException e) {
+			e.getMessage();
+			entityManager.close();
+		}
+				
 	}
 
 }

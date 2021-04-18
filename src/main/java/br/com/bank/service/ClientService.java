@@ -9,9 +9,11 @@ public interface ClientService {
 
 	public Client getClient(String name);
 	
+	public Client getClientId(int idClient);
+	
 	public List<Client> getAll();
 	
 	public void save(Client client);
 	
-	public void deleteById(Long idClient); 
+	public void deleteById(int idClient); 
 }

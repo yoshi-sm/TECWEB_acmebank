@@ -9,12 +9,14 @@
 </head>
 <body>
 	<div align="center">
+		<h2>Client List</h2>
 		<c:if test="${clientList != null}">
 			<c:forEach items="${clientList}" var="client">
           
 		        <p>Nome: <strong>${client.name}</strong>  </p>
 				<p>E-mail: <strong>${client.email}</strong>  </p>
 				<p>Phone: <strong>${client.phone}</strong>  </p>
+				<p>Id: <strong>${client.id}</strong>  </p>
 				<br/><br/>
 		        
     			

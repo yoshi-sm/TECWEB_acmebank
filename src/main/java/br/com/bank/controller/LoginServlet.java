@@ -22,13 +22,14 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		String email = request.getParameter("email");
+		String user = request.getParameter("email");
 		String pass = request.getParameter("password");
 		
-		if(email.equals("yoshismiranda@gmail.com") && pass.equals("123")) {
+		request.getSession().setAttribute("user", user);
+		
+		if(user.equals("yoshismiranda@gmail.com") && pass.equals("123")) {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
-			request.setAttribute("user",email);
 			rd.forward(request, response);
 			
 			
