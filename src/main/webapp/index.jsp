@@ -11,6 +11,7 @@
 		<h2>Login</h2>
 		<br/>
 		<form action="loginServlet" method="POST">
+			
 			<label for="email">E-mail</label>
 			<input id="email" name="email" type="email" placeholder="Informe seu e-mail">
 			<br/>
@@ -20,6 +21,7 @@
 			<br/>
 			<br/>
 			<input type="submit" value="Login" id="btn-Login">
+			
 		</form>
 	</div>
 	

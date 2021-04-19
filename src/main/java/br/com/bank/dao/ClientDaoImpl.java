@@ -73,11 +73,11 @@ public class ClientDaoImpl implements ClientDao{
 		entityManager.getTransaction().begin();
 		
 		try {
-			entityManager.createNamedQuery("Client.getByPhone", Client.class)
+			if(entityManager.createNamedQuery("Client.getByPhone", Client.class)
 					.setParameter("phone", phone)
-					.getSingleResult();
-			return true;
-			
+					.getSingleResult() != null) {
+			return true;}
+			else {return false;}
 		}catch(NoResultException e) {
 			e.getMessage();
 			entityManager.close();
@@ -95,10 +95,11 @@ public class ClientDaoImpl implements ClientDao{
 		entityManager.getTransaction().begin();
 		
 		try {
-			entityManager.createNamedQuery("Client.getByEmail", Client.class)
+			if(entityManager.createNamedQuery("Client.getByEmail", Client.class)
 					.setParameter("email", email)
-					.getSingleResult();
-					return true;
+					.getSingleResult() != null) {
+					return true;}
+			else {return false;}
 			}
 			catch(NoResultException e) {
 			e.getMessage();
