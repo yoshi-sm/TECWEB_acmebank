@@ -30,20 +30,30 @@ public class ClientServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		if (request.getParameter("add") != null) {
-			String name = request.getParameter("name");
-			String email = request.getParameter("email");
-			String phone = request.getParameter("phone");
 			
-			Client client = new Client();
-			client.setName(name);
-			client.setEmail(email);
-			client.setPhone(phone);
-			
-			this.service.save(client);
-			request.setAttribute("message", "Cadastro realizado com sucesso!");
-			RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
-			rd.forward(request, response);
-		
+				String name = request.getParameter("name");
+				String email = request.getParameter("email");
+				String phone = request.getParameter("phone");
+				
+				Client client = new Client();
+				client.setName(name);
+				client.setEmail(email);
+				client.setPhone(phone);
+				
+				if(this.service.checkClientPhone(phone)) {
+					request.setAttribute("message", "Erro! Telefone já está cadastrado.");
+				}
+				else if(this.service.checkClientEmail(email)){
+					request.setAttribute("message", "Erro! Email já está cadastrado.");
+				}
+				else {
+				this.service.save(client);
+				request.setAttribute("message", "Cadastro realizado com sucesso!");
+				}
+				
+				RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
+				rd.forward(request, response);
+				
 		}
 		else if (request.getParameter("return") != null) {
 			RequestDispatcher rd = request.getRequestDispatcher("success.jsp");

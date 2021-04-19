@@ -42,6 +42,14 @@ public class ClientServiceImpl implements ClientService {
 		
 	}
 	
+	public boolean checkClientPhone(String phone) {
+		return this.dao.checkClientPhone(phone);
+	}
+	
+	public boolean checkClientEmail(String email) {
+		return this.dao.checkClientEmail(email);
+	}
+	
 	public Client getClientId(int idClient) {
 		return this.dao.getClientId(idClient);
 	}

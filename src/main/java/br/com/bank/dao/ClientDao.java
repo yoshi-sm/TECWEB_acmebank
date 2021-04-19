@@ -10,6 +10,10 @@ public interface ClientDao {
 	
 	public Client getClientId(int idClient);
 	
+	public boolean checkClientPhone(String phone);
+	
+	public boolean checkClientEmail(String email);
+	
 	public List<Client> getAll();
 	
 	public void save(Client client);

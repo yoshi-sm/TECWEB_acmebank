@@ -10,20 +10,24 @@
 <body>
 	<div align="center">
 		<h2>Client List</h2>
-		<c:if test="${clientList != null}">
-			<c:forEach items="${clientList}" var="client">
-          
-		        <p>Nome: <strong>${client.name}</strong>  </p>
-				<p>E-mail: <strong>${client.email}</strong>  </p>
-				<p>Phone: <strong>${client.phone}</strong>  </p>
-				<p>Id: <strong>${client.id}</strong>  </p>
-				<br/><br/>
-		        
-    			
-			</c:forEach>
-		</c:if>
-	</div>
-	
+        <table border="1" cellpadding="5">
+            
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+            <c:forEach var="user" items="${clientList}">
+                <tr>
+                    <td><c:out value="${user.id}" /></td>
+                    <td><c:out value="${user.name}" /></td>
+                    <td><c:out value="${user.email}" /></td>
+                    <td><c:out value="${user.phone}" /></td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
 	<div align="center">
 		<form action="listServlet" method="POST">
 			<input type="submit" value="Return" id="btn-Return" name="return">

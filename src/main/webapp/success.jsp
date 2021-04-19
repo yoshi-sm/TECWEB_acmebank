@@ -13,11 +13,23 @@
 			<p align="center"><strong>${message}</strong><br/><br/></p>
 		</c:if>
 		<c:if test="${message2 != null}">
-          
-		        <p>Nome: <strong>${message2.name}</strong>  </p>
-				<p>E-mail: <strong>${message2.email}</strong>  </p>
-				<p>Phone: <strong>${message2.phone}</strong>  </p>
-				<p>Id: <strong>${message2.id}</strong>  </p>
+        <div align="center">
+        <table border="1" cellpadding="5">
+            
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+                <tr>
+                    <td><c:out value="${message2.id}" /></td>
+                    <td><c:out value="${message2.name}" /></td>
+                    <td><c:out value="${message2.email}" /></td>
+                    <td><c:out value="${message2.phone}" /></td>
+                </tr>
+        </table>
+    	</div> 
 				<br/><br/>
 		        
     			

@@ -13,6 +13,10 @@ public interface ClientService {
 	
 	public List<Client> getAll();
 	
+	public boolean checkClientPhone(String phone);
+	
+	public boolean checkClientEmail(String email);
+	
 	public void save(Client client);
 	
 	public void deleteById(int idClient); 

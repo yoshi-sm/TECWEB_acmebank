@@ -67,22 +67,65 @@ public class ClientDaoImpl implements ClientDao{
 		}
 		return null;
 	}
-
+	
+	public boolean checkClientPhone(String phone) {
+		EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		try {
+			entityManager.createNamedQuery("Client.getByPhone", Client.class)
+					.setParameter("phone", phone)
+					.getSingleResult();
+			return true;
+			
+		}catch(NoResultException e) {
+			e.getMessage();
+			entityManager.close();
+		}
+		return false;
+		
+		
+		
+		
+	}
+	
+	
+	public boolean checkClientEmail(String email) {
+		EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		try {
+			entityManager.createNamedQuery("Client.getByEmail", Client.class)
+					.setParameter("email", email)
+					.getSingleResult();
+					return true;
+			}
+			catch(NoResultException e) {
+			e.getMessage();
+			entityManager.close();
+		}
+		return false;
+	}
+	
+	
 	@Override
 	public void save(Client client) {
 		EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
 		entityManager.getTransaction().begin();
 		
-		try {
-			
-			entityManager.persist(client);
-			entityManager.getTransaction().commit();
-			entityManager.close();
-			
-		} catch(Exception e) {
-			e.getMessage();
+		
+			try {
+					entityManager.persist(client);
+					entityManager.getTransaction().commit();
+					entityManager.close();
+					
+			} catch(Exception e) {
+				e.getMessage();
+				
+			}
 		}
-		}
+		
+	
 	
 
 	@Override

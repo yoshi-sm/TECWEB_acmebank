@@ -29,6 +29,8 @@ import lombok.Setter;
 @Entity
 @Table(name ="clients")
 @NamedQuery(name ="Client.getByName", query = "select c from Client c where c.name = :name")
+@NamedQuery(name ="Client.getByPhone", query = "select c from Client c where c.phone = :phone")
+@NamedQuery(name ="Client.getByEmail", query = "select c from Client c where c.email = :email")
 @NamedQuery(name ="Client.getById", query = "select c from Client c where c.id = :id")
 public class Client {
 	
